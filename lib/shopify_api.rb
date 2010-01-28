@@ -120,7 +120,6 @@ module ShopifyAPI
     end
 
     def initialize(url, token = nil, params = nil)
-      raise ArgumentError, "A valid Shopify shop URL must be provided" if url.blank?
       self.url, self.token = url, token
 
       if params && params[:signature]
@@ -129,7 +128,7 @@ module ShopifyAPI
         end
       end
 
-      self.class.prepare_url(self.url)
+      self.class.prepare_url(self.url) if valid?
     end
     
     def shop
@@ -148,7 +147,7 @@ module ShopifyAPI
     end
 
     def valid?
-      [url, token].all?
+      url.present? && token.present?
     end
 
     private
@@ -452,16 +451,9 @@ module ShopifyAPI
     def cancel
       load_attributes_from_response(self.destroy)
     end
-    
-    def activate
-      load_attributes_from_response(post(:activate))
-    end
   end
 
   class ApplicationCharge < Base
-    def activate
-      load_attributes_from_response(post(:activate))
-    end
   end
   
   # Include Metafields module in all enabled classes

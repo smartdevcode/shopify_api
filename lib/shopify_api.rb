@@ -352,6 +352,10 @@ module ShopifyAPI
   
   class Article < Base
     self.prefix = "/admin/blogs/:blog_id/"
+    
+    def comments
+      Comment.find(:all, :param => { :article_id => id })
+    end
   end
   
   class Metafield < Base
@@ -505,8 +509,8 @@ module ShopifyAPI
       load_attributes_from_response(self.destroy)
     end
     
-    def activate(options = {})
-      load_attributes_from_response(post(:activate, options))
+    def activate
+      load_attributes_from_response(post(:activate))
     end
   end
 

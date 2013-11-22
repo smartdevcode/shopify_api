@@ -14,8 +14,8 @@ module ShopifyAPI
       Comment.find(:all, :params => { :article_id => id })
     end
 
-    def self.authors(options = {})
-      get(:authors, options)
+    def self.authors
+      get(:authors)
     end
 
     def self.tags(options={})

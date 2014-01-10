@@ -18,8 +18,7 @@
       "option1": "Pink",
       "option2": null,
       "fulfillment_service": "manual",
-      "option3": null,
-      "product_id": 632910392
+      "option3": null
     },
     {
       "price": "199.00",
@@ -39,8 +38,7 @@
       "option1": "Red",
       "option2": null,
       "fulfillment_service": "manual",
-      "option3": null,
-      "product_id": 632910392
+      "option3": null
     },
     {
       "price": "199.00",
@@ -60,8 +58,7 @@
       "option1": "Green",
       "option2": null,
       "fulfillment_service": "manual",
-      "option3": null,
-      "product_id": 632910392
+      "option3": null
     },
     {
       "price": "199.00",
@@ -81,8 +78,7 @@
       "option1": "Black",
       "option2": null,
       "fulfillment_service": "manual",
-      "option3": null,
-      "product_id": 632910392
+      "option3": null
     }
   ]
 }

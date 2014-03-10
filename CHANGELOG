@@ -1,20 +1,6 @@
-== Version 3.2.1
-
-* Added CarrierService resource
-* Added optionally using threadsafe ActiveResource (see readme)
-* Fixed bug in validate_signature
-
-== Version 3.2.0
+== Version 3.1.9
 
 * in Session::request_token params is no longer optional, you must pass all the params and the method will now extract the code
-* Fixed JSON errors handling (#103)
-* Fixed compatibility with Ruby 2.1.x (#83)
-* Fixed getting parent ID from nested resources like Variants (#44)
-* Cleaned up compatibility with ActiveResource 4.0.x
-* Added OrderRisk resource
-* Added FulfillmentService resource
-* Removed discontinued ProductSearchEngine resource
-* Added convenience method Customer#search (#45)
 
 == Version 3.1.8
 

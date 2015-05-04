@@ -1,8 +1,4 @@
-== Version 4.0.1
-
-* Added `ShopifyAPI::OAuth.revoke` for easy token revocation.
-
-== Version 3.2.6
+== 3.2.6 (Unreleased)
 
 * Fixed CustomerSavedSearch#customers method to now correctly return only relevant customers
 

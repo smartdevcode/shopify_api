@@ -1,4 +1,12 @@
-== 3.2.6 (Unreleased)
+== Version 4.0.2
+
+* Verify that the shop domain is a subdomain of .myshopify.com which creating the session
+
+== Version 4.0.1
+
+* Added `ShopifyAPI::OAuth.revoke` for easy token revocation.
+
+== Version 3.2.6
 
 * Fixed CustomerSavedSearch#customers method to now correctly return only relevant customers
 

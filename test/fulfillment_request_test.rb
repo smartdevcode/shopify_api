@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FulFillmentRequestTest < Test::Unit::TestCase
   def setup
-    fake "orders/450789469/fulfillment_requests/255858046", method: :get, body: load_fixture('fulfillment_request')
+    fake "orders/450789469/fulfillment_requests/695890229", method: :get, body: load_fixture('fulfillment_request')
   end
 
   context "#mark_as_failed" do
@@ -11,11 +11,7 @@ class FulFillmentRequestTest < Test::Unit::TestCase
 
       cancelled = ActiveSupport::JSON.decode(load_fixture('fulfillment_request'))
       cancelled['failure_message'] = 'failure reason'
-      cancelled['message'] = nil
-      fake "orders/450789469/fulfillment_requests/695890229/mark_as_failed.json?message=",
-        method: :put,
-        body: ActiveSupport::JSON.encode(cancelled),
-        extension: false
+      fake "orders/450789469/fulfillment_requests/695890229/mark_as_failed", method: :put, body: ActiveSupport::JSON.encode(cancelled)
 
       assert fulfillment_request.failure_message.blank?
       assert fulfillment_request.mark_as_failed

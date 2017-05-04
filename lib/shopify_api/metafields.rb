@@ -1,9 +1,7 @@
 module ShopifyAPI
   module Metafields
-    def metafields(**options)
-      options.merge! resource: self.class.collection_name, resource_id: id
-
-      Metafield.find :all, params: options
+    def metafields
+      Metafield.find(:all, :params => {:resource => self.class.collection_name, :resource_id => id})
     end
 
     def add_metafield(metafield)

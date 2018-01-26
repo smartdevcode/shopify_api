@@ -19,7 +19,7 @@ All API usage happens through Shopify applications, created by either shop owner
 * Shop owners can create applications for themselves through their own admin: https://docs.shopify.com/api/authentication/creating-a-private-app
 * Shopify Partners create applications through their admin: http://app.shopify.com/services/partners
 
-For more information and detailed documentation about the API visit http://api.shopify.com
+For more information and detailed documentation about the API visit https://developers.shopify.com/
 
 #### Ruby version
 
@@ -37,15 +37,6 @@ Or install via [gem](http://rubygems.org/)
 
 ```bash
 gem install shopify_api
-```
-
-#### Rails 5
-
-shopify_api is compatible with Rails 5 but since the latest ActiveResource release (4.1) is locked on Rails 4.x, you'll need to use the unreleased master version:
-
-```ruby
-gem 'shopify_api'
-gem 'activeresource', github: 'rails/activeresource'
 ```
 
 ### Getting Started
@@ -246,7 +237,7 @@ rake install
 
 ## Additional Resources
 
-API Docs: https://help.shopify.com/api/reference
+API Reference: https://help.shopify.com/api/reference
 
 Ask questions on the forums: http://ecommerce.shopify.com/c/shopify-apis-and-technology
 

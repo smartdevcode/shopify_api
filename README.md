@@ -262,8 +262,9 @@ bundle exec rake test
 
 ## Additional Resources
 
-* [API Reference](https://help.shopify.com/api/reference)
-* [Ask questions on the forums](http://ecommerce.shopify.com/c/shopify-apis-and-technology)
+API Reference: https://help.shopify.com/api/reference
+
+Ask questions on the forums: http://ecommerce.shopify.com/c/shopify-apis-and-technology
 
 ## Copyright
 

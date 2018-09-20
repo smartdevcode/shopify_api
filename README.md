@@ -221,30 +221,6 @@ gem install shopify_cli
    shopify-cli help
    ```
 
-## GraphQL
-
-This library also supports Shopify's new [GraphQL API](https://help.shopify.com/api/graphql-admin-api)
-via a dependency on the [graphql-client](https://github.com/github/graphql-client) gem.
-The authentication process (steps 1-5 under [Getting Started](#getting-started))
-is identical. Once your session is activated, simply construct a new graphql
-client and use `parse` and `query` as defined by
-[graphql-client](https://github.com/github/graphql-client#defining-queries).
-
-```ruby
-client = ShopifyAPI::GraphQL.new
-
-SHOP_NAME_QUERY = client.parse <<-'GRAPHQL'
-  {
-    shop {
-      name
-    }
-  }
-GRAPHQL
-
-result = client.query(SHOP_NAME_QUERY)
-result.data.shop.name
-```
-
 ## Threadsafety
 
 ActiveResource is threadsafe as of version 4.1 (which works with Rails 4.x and above).
@@ -256,8 +232,7 @@ If you were previously using Shopify's [activeresource fork](https://github.com/
 Download the source code and run:
 
 ```bash
-bundle install
-bundle exec rake test
+rake install
 ```
 
 ## Additional Resources

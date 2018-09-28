@@ -4,7 +4,7 @@ module ShopifyAPI
     include Metafields
 
     def products(options = {})
-      if options.present?
+      if options.key?(:only_sorted)
         Product.find(:all, from: "/admin/smart_collections/#{id}/products.json", params: options)
       else
         Product.find(:all, params: { collection_id: id })

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
+
 module ShopifyAPI
-  class Publication < Base
+  class TenderTransaction < Base
   end
 end

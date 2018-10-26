@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module ShopifyAPI
-  class Currency < Base
+  class TenderTransaction < Base
   end
 end

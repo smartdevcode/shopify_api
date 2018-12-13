@@ -1,3 +1,11 @@
+== Version 5.2.3
+
+* Update delivery confirmation resource to delivery confirmation details resource.
+
+== Version 5.2.2
+
+* Add delivery confirmation endpoint to Ping resources.
+
 == Version 5.2.1
 
 * Log warning when Shopify indicates deprecated API call was performed

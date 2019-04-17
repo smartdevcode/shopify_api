@@ -38,7 +38,7 @@ ShopifyAPI::Session.temp(domain: domain, token: token, api_version: api_version)
 end
 ```
 
-The `api_version` attribute can take the string or symbol name of any known version and correctly coerce it to a `ShopifyAPI::ApiVersion`.  You can find the currently defined versions [here](https://github.com/Shopify/shopify_api/blob/master/lib/shopify_api/api_version.rb#L58), follow these [instructions](#adding-aditional-api-versions) to add additional version definitions if needed.
+The `api_version` attribute can take the string or symbol name of any known version and correctly coerce it to a `ShopifyAPI::ApiVersion`.  You can find the currently defined versions [here](https://github.com/Shopify/shopify_api/blob/master/lib/shopify_api/defined_versions.rb), follow these [instructions](#adding-aditional-api-versions) to add additional version definitions if needed.
 
 For example if you want to use the `2019-04` version you would create a session like this:
 ```ruby
@@ -372,17 +372,6 @@ Download the source code and run:
 ```bash
 bundle install
 bundle exec rake test
-```
-
-or if you'd rather use docker just run:
-```bash
-docker run -it --name shopify_api -v $PWD:/shopify_api -w="/shopify_api" ruby:2.4.6 bundle install
-docker exec -it shopify_api bash
-```
-
-or you can even use our automated rake task for docker:
-```bash
-bundle exec rake docker
 ```
 
 ## Additional Resources

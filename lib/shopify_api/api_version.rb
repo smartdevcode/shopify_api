@@ -4,8 +4,6 @@ module ShopifyAPI
     class UnknownVersion < StandardError; end
     class InvalidVersion < StandardError; end
 
-    extend DefinedVersions
-
     include Comparable
 
     def self.coerce_to_version(version_or_name)
@@ -25,6 +23,11 @@ module ShopifyAPI
 
     def self.clear_defined_versions
       @versions = {}
+    end
+
+    def self.define_known_versions
+      define_version(Unstable.new)
+      define_version(Release.new('2019-04'))
     end
 
     def self.latest_stable_version

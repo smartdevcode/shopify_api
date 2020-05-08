@@ -1,7 +1,3 @@
-## Version 9.1.1
-
-* Make cursor based pagination return relative uri's when fetching next and previous pages. [#726](https://github.com/Shopify/shopify_api/pull/726)
-
 ## Version 9.1.0
 
 * Implements equality operator on `Session` [#714](https://github.com/Shopify/shopify_api/pull/714)

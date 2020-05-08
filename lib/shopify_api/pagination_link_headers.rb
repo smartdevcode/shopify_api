@@ -25,7 +25,7 @@ module ShopifyAPI
         url = parts[0][/<(.*)>/, 1]
         rel = parts[1][/rel="(.*)"/, 1]&.to_sym
 
-        url = URI.parse(url).request_uri
+        url = URI.parse(url)
         LinkHeader.new(url, rel)
       end
     end

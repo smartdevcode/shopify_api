@@ -18,12 +18,25 @@ class SessionTest < Test::Unit::TestCase
     assert_not session.valid?
   end
 
-  test "not be valid without an api version" do
+  test "not be valid without an API version" do
     session = ShopifyAPI::Session.new(domain: "testshop.myshopify.com", token: "any-token", api_version: nil)
     assert_not session.valid?
 
     session = ShopifyAPI::Session.new(domain: "testshop.myshopify.com", token: "any-token", api_version: ShopifyAPI::ApiVersion::NullVersion)
     assert_not session.valid?
+  end
+
+  test "default to base API version" do
+    session = ShopifyAPI::Session.new(domain: "testshop.myshopify.com", token: "any-token")
+    assert session.valid?
+    assert_equal session.api_version, ShopifyAPI::Base.api_version
+  end
+
+  test "can override the base API version" do
+    different_api_version = '2020-01'
+    session = ShopifyAPI::Session.new(domain: "testshop.myshopify.com", token: "any-token", api_version: different_api_version)
+    assert session.valid?
+    assert_equal session.api_version, ShopifyAPI::ApiVersion.find_version(different_api_version)
   end
 
   test "be valid with any token, any url and version" do
@@ -78,17 +91,13 @@ class SessionTest < Test::Unit::TestCase
     assert_equal "My test secret", ShopifyAPI::Session.secret
   end
 
-  test "#temp reset ShopifyAPI::Base values to original value" do
+  test "#temp reset ShopifyAPI::Base.site to original value" do
     session1 = ShopifyAPI::Session.new(domain: 'fakeshop.myshopify.com', token: 'token1', api_version: '2019-01')
-    ShopifyAPI::Base.user = 'foo'
-    ShopifyAPI::Base.password = 'bar'
     ShopifyAPI::Base.activate_session(session1)
 
     ShopifyAPI::Session.temp(domain: "testshop.myshopify.com", token: "any-token", api_version: :unstable) do
       @assigned_site = ShopifyAPI::Base.site
       @assigned_version = ShopifyAPI::Base.api_version
-      @assigned_user = ShopifyAPI::Base.user
-      @assigned_password = ShopifyAPI::Base.password
     end
 
     assert_equal('https://testshop.myshopify.com', @assigned_site.to_s)
@@ -96,31 +105,6 @@ class SessionTest < Test::Unit::TestCase
 
     assert_equal(ShopifyAPI::ApiVersion.new(handle: :unstable), @assigned_version)
     assert_equal(ShopifyAPI::ApiVersion.new(handle: '2019-01'), ShopifyAPI::Base.api_version)
-
-    assert_nil(@assigned_user)
-    assert_equal('foo', ShopifyAPI::Base.user)
-
-    assert_nil(@assigned_password)
-    assert_equal('bar', ShopifyAPI::Base.password)
-  end
-
-  test "#temp does not use basic auth values from Base.site" do
-    ShopifyAPI::Base.site = 'https://user:pass@fakeshop.myshopify.com'
-
-    ShopifyAPI::Session.temp(domain: "testshop.myshopify.com", token: "any-token", api_version: :unstable) do
-      @assigned_site = ShopifyAPI::Base.site
-      @assigned_user = ShopifyAPI::Base.user
-      @assigned_password = ShopifyAPI::Base.password
-    end
-
-    assert_equal('https://testshop.myshopify.com', @assigned_site.to_s)
-    assert_equal('https://fakeshop.myshopify.com', ShopifyAPI::Base.site.to_s)
-
-    assert_nil(@assigned_user)
-    assert_equal('user', ShopifyAPI::Base.user)
-
-    assert_nil(@assigned_password)
-    assert_equal('pass', ShopifyAPI::Base.password)
   end
 
   test "#with_session activates the session for the duration of the block" do

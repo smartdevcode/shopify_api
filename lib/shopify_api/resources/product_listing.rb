@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module ShopifyAPI
   class ProductListing < Base
     self.primary_key = :product_id

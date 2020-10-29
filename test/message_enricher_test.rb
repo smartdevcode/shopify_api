@@ -1,8 +1,6 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 class MessageEnricherTest < Test::Unit::TestCase
-
   def test_enriches_initial_message_when_body_contains_error
     response = enriched_response(422, 'InitialMessage', { error: 'My Error' })
 

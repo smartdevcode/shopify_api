@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module ShopifyAPI
   module Metafields
     def metafields(**options)
@@ -12,7 +11,7 @@ module ShopifyAPI
 
       metafield.prefix_options = {
         resource: self.class.collection_name,
-        resource_id: id
+        resource_id: id,
       }
       metafield.save
       metafield

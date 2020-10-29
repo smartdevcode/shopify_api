@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 $:.unshift(File.dirname(__FILE__))
 require 'active_resource'
 require 'active_support/core_ext/class/attribute_accessors'

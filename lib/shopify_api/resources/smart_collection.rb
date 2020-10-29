@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module ShopifyAPI
   class SmartCollection < Base
     include Events
@@ -11,6 +10,5 @@ module ShopifyAPI
     def order(options = {})
       load_attributes_from_response(put(:order, options, only_id))
     end
-
   end
 end

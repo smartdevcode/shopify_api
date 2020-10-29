@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module ShopifyAPI
   # Shop object. Use Shop.current to receive
   # the shop.

@@ -1,8 +1,6 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 class AccessTokenTest < Test::Unit::TestCase
-
   def test_delegate_access_token
     fake(
       "access_tokens/delegate.json?delegate_access_scope%5B%5D=write_orders&" \

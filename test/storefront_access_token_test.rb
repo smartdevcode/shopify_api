@@ -1,8 +1,6 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 class StorefrontAccessTokenTest < Test::Unit::TestCase
-
   def test_create_storefront_access_token
     fake("storefront_access_tokens", method: :post, body: load_fixture('storefront_access_token'))
     storefront_access_token = ShopifyAPI::StorefrontAccessToken.create(title: 'Test')
@@ -28,5 +26,4 @@ class StorefrontAccessTokenTest < Test::Unit::TestCase
     assert_equal('Test 1', tokens.first.title)
     assert_equal('Test 2', tokens.last.title)
   end
-
 end

@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module ShopifyAPI
   class FulfillmentV2 < Base
     self.element_name = 'fulfillment'
@@ -12,8 +11,8 @@ module ShopifyAPI
       body = {
         fulfillment: {
           tracking_info: tracking_info,
-          notify_customer: notify_customer
-        }
+          notify_customer: notify_customer,
+        },
       }
       load_attributes_from_response(post(:update_tracking, {}, body.to_json))
     end

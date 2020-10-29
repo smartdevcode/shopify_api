@@ -1,8 +1,6 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 class ProductListingTest < Test::Unit::TestCase
-
   def test_get_product_listings
     fake("product_listings", method: :get, status: 201, body: load_fixture('product_listings'))
 

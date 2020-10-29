@@ -1,9 +1,7 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 module ActiveResource
   class JsonErrorsTest < Test::Unit::TestCase
-
     def test_parsing_of_error_json_hash
       @model = ShopifyAPI::Order.new
       @model.errors.from_json({ errors: { name: ['missing'] } }.to_json)

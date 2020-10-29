@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class VerifyDocs
   def self.call
     readme_content = File.read("README.md").lines[2..-1]

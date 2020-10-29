@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'test_helper'
 class TaxServiceTest < Test::Unit::TestCase
   test "tax service creation" do
@@ -8,6 +7,5 @@ class TaxServiceTest < Test::Unit::TestCase
       '{"tax_service":{"name":"My Tax Service","url":"https://mytaxservice.com"}}',
       WebMock.last_request.body
     )
-
   end
 end

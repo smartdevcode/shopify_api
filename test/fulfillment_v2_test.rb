@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'test_helper'
 require 'fulfillment_order_test_helper'
 
@@ -22,8 +21,8 @@ class FulfillmentV2Test < Test::Unit::TestCase
     @request_body = {
       fulfillment: {
         tracking_info: @tracking_info,
-        notify_customer: true
-      }
+        notify_customer: true,
+      },
     }
     @url_prefix = url_prefix_for_activated_session_for('2020-01')
     fake(

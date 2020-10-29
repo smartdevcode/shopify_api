@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module ShopifyAPI
   module Limits
     class LimitUnavailable < StandardError; end

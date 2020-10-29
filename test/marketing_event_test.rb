@@ -1,8 +1,6 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 class MarketingEventTest < Test::Unit::TestCase
-
   def test_get_marketing_events
     fake("marketing_events", method: :get, body: load_fixture('marketing_events'))
     marketing_events = ShopifyAPI::MarketingEvent.all
@@ -61,7 +59,7 @@ class MarketingEventTest < Test::Unit::TestCase
       favorites_count: nil,
       comments_count: nil,
       ad_spend: nil,
-      is_cumulative: true
+      is_cumulative: true,
     }
     marketing_event.add_engagements(engagement)
     assert("2017-04-20", engagement[:occurred_on])

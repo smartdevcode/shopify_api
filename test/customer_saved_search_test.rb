@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'test_helper'
 
 class CustomerSavedSearchTest < Test::Unit::TestCase
@@ -29,6 +28,7 @@ class CustomerSavedSearchTest < Test::Unit::TestCase
   end
 
   private
+
   def load_customer_saved_search
     fake('customer_saved_searches/8899730', body: load_fixture('customer_saved_search'))
     @customer_saved_search = ShopifyAPI::CustomerSavedSearch.find(8899730)

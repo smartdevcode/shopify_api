@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module FulfillmentOrderTestHelper
   def url_prefix_for_activated_session_for(version)
     available_version = ShopifyAPI::Session.new(domain: 'shop2.myshopify.com', token: 'token2', api_version: version)

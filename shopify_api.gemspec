@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 $:.push(File.expand_path("../lib", __FILE__))
 require "shopify_api/version"
 
@@ -21,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.md"
+    "README.md",
   ]
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test}/*`.split("\n")
